@@ -3,7 +3,6 @@ import json
 import time
 import os
 
-import PIL.Image
 from PyPDF2 import PdfReader
 
 from selenium import webdriver
@@ -11,6 +10,7 @@ from selenium.webdriver.common.by import By
 from flask import Flask
 from flask import request
 from flask_cors import CORS, cross_origin
+import PIL
 from PIL import Image, ImageDraw, ImageFont
 from flask import Response
 import base64
@@ -42,7 +42,7 @@ def get_id_picture():
     global google
 
     options = webdriver.ChromeOptions()
-    options.headless = True
+    options.headless = False
     app_state = {
         "recentDestinations": [
             {
@@ -58,8 +58,8 @@ def get_id_picture():
         os.mkdir("./" + user + "_id")
 
     profile = {'printing.print_preview_sticky_settings.appState': json.dumps(app_state),
-               "download.default_directory": "C:\\Users\\k1517600\\PycharmProjects\\id_generator\\" + user + "_id",
-               "savefile.default_directory": "C:\\Users\\k1517600\\PycharmProjects\\id_generator\\" + user + "_id",
+               "download.default_directory": "C:\\Users\\k1517600\\PycharmProjects\\IDGen\\" + user + "_id",
+               "savefile.default_directory": "C:\\Users\\k1517600\\PycharmProjects\\IDGen\\" + user + "_id",
                "download.directory_upgrade": True, }
     options.add_experimental_option('prefs', profile)
     options.add_argument('--kiosk-printing')
@@ -70,16 +70,15 @@ def get_id_picture():
     username_field = google.find_element(By.ID, "input27")
     next_button = google.find_element(By.CLASS_NAME, "button-primary")
 
+    password_field = google.find_element(By.ID, "input35")
+    next_button = google.find_element(By.CLASS_NAME, "button-primary")
+
+    password_field.send_keys(password)
+
     username_field.send_keys(user)
     next_button.click()
 
     google.implicitly_wait(5)
-
-    password_field = google.find_element(By.ID, "input59")
-    next_button = google.find_element(By.CLASS_NAME, "button-primary")
-
-    password_field.send_keys(password)
-    next_button.click()
 
     time.sleep(5)
 
