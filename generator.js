@@ -80,7 +80,7 @@ class Generator{
 
  
 
-var current_ngrok_link = "http://127.0.0.1:5000/GenerateID"
+var current_ngrok_link = "https://idgenerator.ngrok.io/GenerateID"
 
 
  
