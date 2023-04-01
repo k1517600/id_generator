@@ -61,7 +61,15 @@ class Generator{
 
         imageRequest.setRequestHeader('Content-Type', 'application/json');
 
-        imageRequest.send(JSON.stringify(dataJson));
+        try{
+          imageRequest.send(JSON.stringify(dataJson));
+        }
+        catch{
+          var text = document.createElement("p")
+          var textNode = document.createTextNode("Uh-oh, looks like we had some troubles with the fetching process. Check the troubleshooting area above.")
+          text.appendChild(textNode)
+          document.body.appendChild(text)
+        }
 
         var base64Data = imageRequest.responseText
 
