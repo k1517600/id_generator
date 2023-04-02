@@ -3,7 +3,7 @@
 <html lang="en">
 
 
- 
+
 
 <head>
 
@@ -20,7 +20,7 @@
 </head>
 
 
- 
+
 
 <body>
 
@@ -43,7 +43,7 @@
         will not be dependant on whether or not you share your information with me.
 
 
- 
+
 
     </div>
 
@@ -54,7 +54,7 @@
         students making JHS IDs, so if you aren't a JHS student, this tool will not work.
 
 
- 
+
 
     </div>
 
@@ -64,9 +64,11 @@
 
         for the district to patch it. Speaking of which, I am Joshua Novak, 11th grade student. This was made for my
 
-        Digital Arts and Animation "Genius Hour" project, where I took an hour or so each week to work on it. I plan on making
+        Digital Arts and Animation "Genius Hour" project, where I took an hour or so each week to work on it. I plan on
+        making
 
-        the site prettier, but functionality always comes before aesthetic. Thank you for taking the time to come to the site, and
+        the site prettier, but functionality always comes before aesthetic. Thank you for taking the time to come to the
+        site, and
 
         I hope you can find use in this tool.
 
@@ -74,33 +76,54 @@
 
     <div>
         <b>Usage: </b>
-        <p>You first put your katyisd ID, then your grade level, then your password. Shoutout to someone named Pranav who kept putting in his name to the username field</p>
+        <p>You first put your katyisd ID, then your grade level, then your password. Shoutout to someone named Pranav
+            who kept putting in his name to the username field</p>
         <b>Troubleshooting: </b>
-        <p>Make sure you can access your ID photo on my katy cloud. Log into my katy and go to the "student id" section.</p>
-        <p>Make sure your info is correct and make sure you're a JHS student. Again, doesn't work if you're not from JHS.</p>
+        <p>Make sure you can access your ID photo on my katy cloud. Log into my katy and go to the "student id" section.
+        </p>
+        <p>Make sure your info is correct and make sure you're a JHS student. Again, doesn't work if you're not from
+            JHS.</p>
+        <p>Try using the ping button to see if my server can be pinged. A response of "Pong!" means that the server was pinged successfully.</p>
     </div>
 
     <div></div>
 
+    <script>
+        function ping() {
+            var pingRequest = new XMLHttpRequest();
+            pingRequest.open("GET", "https://idgenerator.ngrok.io/ping", false)
+            try {
+                pingRequest.send()
+                var text = document.createElement("p")
+                var textNode = document.createTextNode("Pong!")
+                text.appendChild(textNode)
+                document.body.appendChild(text)
+            } catch {
+                var text = document.createElement("p")
+                var textNode = document.createTextNode("Server couldn't be pinged. My computer's probably offline or something.")
+                text.appendChild(textNode)
+                document.body.appendChild(text)
+            }
+        }
+    </script>
+    <button onclick="ping()">ping!</button>
     <form>
 
         ID information:<br>
 
-        <input type="text" name="id" id = "id"><br>
+        <input type="text" name="id" id="id"><br>
 
-        <input type="grade" name="grade" id = "grade"><br>
+        <input type="grade" name="grade" id="grade"><br>
 
-        <input type="password" name="pass" id = "pass"><br>
+        <input type="password" name="pass" id="pass"><br>
 
-        <input type="button" value="Submit" id = "submit"
-
-               onClick = "makeGenerator()">
+        <input type="button" value="Submit" id="submit" onClick="makeGenerator()">
 
     </form>
 
 </body>
 
 
- 
+
 
 </html>
