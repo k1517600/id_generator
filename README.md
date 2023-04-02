@@ -1,6 +1,3 @@
 # id_generator
 
-yeah so my code is really poor so you'll have to make some edits yourself. my code uses global references to everything because i got lazy halfway through, so you'll have to change them yourself
-
-requires a chrome driver
-good luck
+my code is VERY bad please don't make fun of it. uses a flask server and a ngrok webhook to make stuff work!!!!!! please don't block this website katyisd i love you <3
