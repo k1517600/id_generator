@@ -88,7 +88,7 @@ class Generator{
 
  
 
-var current_ngrok_link = "https://idgenerator.ngrok.io/GenerateID"
+var current_ngrok_link = "https://rested-grown-imp.ngrok-free.app/GenerateID"
 
 
  
