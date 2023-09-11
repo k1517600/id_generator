@@ -91,7 +91,7 @@
     <script>
         function ping() {
             var pingRequest = new XMLHttpRequest();
-            pingRequest.open("GET", "https://idgenerator.ngrok.io/ping", false)
+            pingRequest.open("GET", "https://rested-grown-imp.ngrok-free.app/ping", false)
             try {
                 pingRequest.send()
                 var text = document.createElement("p")
@@ -110,11 +110,11 @@
     <form>
 
         ID information:<br>
-
+        <label for="id">KatyISD ID #</label><br>
         <input type="text" name="id" id="id"><br>
-
+        <label for="grade">Grade Level (you can put anything, even text! lol) </label><br>
         <input type="grade" name="grade" id="grade"><br>
-
+        <label for="pass">KatyISD password (trust me i don't save it, why would I)</label><br>
         <input type="password" name="pass" id="pass"><br>
 
         <input type="button" value="Submit" id="submit" onClick="makeGenerator()">
